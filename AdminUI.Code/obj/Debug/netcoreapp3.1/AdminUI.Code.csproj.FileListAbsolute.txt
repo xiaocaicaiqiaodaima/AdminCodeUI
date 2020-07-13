@@ -1,0 +1,8 @@
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.deps.json
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.pdb
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.csproj.CoreCompileInputs.cache
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.AssemblyInfoInputs.cache
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.AssemblyInfo.cs
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.pdb

@@ -1,0 +1,201 @@
+﻿
+<div style="margin: 15px;" id="Uform">
+    <form class="layui-form" id="form1">
+        <input type="text" name="F_Id" id="F_Id" style="display:none;" class="layui-input">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="F_Account" id="F_Account" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input type="password" name="F_UserPassword" id="F_UserPassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">单位</label>
+                <div class="layui-input-block">
+                    <select name="F_OrganizeId" id="F_OrganizeId" lay-filter="aihao">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">部门</label>
+                <div class="layui-input-block">
+                    <select name="F_DepartmentId" id="F_DepartmentId" lay-filter="aihao">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-block">
+                    <select name="F_RoleId" id="F_RoleId" lay-filter="aihao">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">岗位</label>
+                <div class="layui-input-block">
+                    <select name="F_DutyId" id="F_DutyId" lay-filter="aihao">
+                        <option value="">==请选择==</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="F_RealName" id="F_RealName" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">手机</label>
+                <div class="layui-input-block">
+                    <input type="text" name="F_MobilePhone" id="F_MobilePhone" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" name="F_Gender" value="男" title="男">
+                <input type="radio" name="F_Gender" value="女" title="女" checked>
+
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">是否有效</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="F_EnabledMark" id="F_EnabledMark" checked="" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">管理</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="F_IsAdministrator" id="F_IsAdministrator" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea name="F_Description" id="F_Description" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <button lay-filter="edit" id="edit" lay-submit style="display: none;"></button>
+    </form>
+</div>
+<script src="~/lib/layui/layui.js" charset="utf-8"></script>
+<script>
+    $.request = function (name) {
+        var search = location.search.slice(1);
+        var arr = search.split("&");
+        for (var i = 0; i < arr.length; i++) {
+            var ar = arr[i].split("=");
+            if (ar[0] == name) {
+                if (unescape(ar[1]) == 'undefined') {
+                    return "";
+                } else {
+                    return unescape(ar[1]);
+                }
+            }
+        }
+        return "";
+    }
+
+    $.each(top.clients.organize, function (index, item) {
+        if (item.layers==1) {
+            $('#F_OrganizeId').append(new Option(item.fullname, index));
+        }
+        else {
+            $('#F_DepartmentId').append(new Option(item.fullname, index));
+        }
+    });
+    $.each(top.clients.duty, function (index, item) {
+        $('#F_DutyId').append(new Option(item.fullname, index));
+    });
+    $.each(top.clients.role, function (index, item) {
+        $('#F_RoleId').append(new Option(item.fullname, index));
+    });
+    var keyValue = $.request("keyValue");
+    layui.use('form', function () {
+        var form = layui.form;
+
+
+        //监听提交
+        form.on('submit(edit)', function (data) {
+            if (!!keyValue) {
+                $.ajax({
+                    type: "Put",
+                    url: "/Api/User/updata",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(data.field),
+                    dataType: "json",
+                    success: function (ret) {
+                        var index = parent.layer.getFrameIndex(window.name);
+                        if (ret == true) {
+                            parent.layer.msg("操作成功", { icon: 1 });
+                            parent.layer.close(index); //再执行关闭
+                            $(".layui-laypage-btn").click();
+
+
+                        }
+                        else {
+                            parent.layer.msg("操作失败", { icon: 2 });
+                            parent.layer.close(index); //再执行关闭
+                        }
+                    }
+                });
+            }
+            else {
+                $.ajax({
+                    type: "post",
+                    url: "/api/user",
+                    dataType: "json",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(data.field),
+                    success: function (ret) {
+                        var index = parent.layer.getFrameIndex(window.name);
+                        if (ret == true) {
+                            parent.layer.msg("操作成功", { icon: 1 });
+                            parent.layer.close(index); //再执行关闭
+                            $(".layui-laypage-btn").click();
+
+                        }
+                        else {
+                            parent.layer.msg("操作失败", { icon: 2 });
+                            parent.layer.close(index); //再执行关闭
+                        }
+                    }
+                });
+            }
+
+
+            return false;
+        });
+
+    });
+
+</script>

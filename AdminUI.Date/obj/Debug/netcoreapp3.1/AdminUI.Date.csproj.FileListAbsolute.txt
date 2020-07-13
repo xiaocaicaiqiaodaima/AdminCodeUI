@@ -1,0 +1,17 @@
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Date.deps.json
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Date.runtimeconfig.json
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Date.runtimeconfig.dev.json
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Date.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Date.pdb
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Code.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Domain.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Code.pdb
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\bin\Debug\netcoreapp3.1\AdminUI.Domain.pdb
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.csprojAssemblyReference.cache
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.csproj.CoreCompileInputs.cache
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.AssemblyInfoInputs.cache
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.AssemblyInfo.cs
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.csproj.CopyComplete
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.dll
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.pdb
+C:\Users\sanke\source\repos\AdminUICode\AdminUI.Date\obj\Debug\netcoreapp3.1\AdminUI.Date.genruntimeconfig.cache
