@@ -71,7 +71,7 @@ namespace AdminUI.Controllers.Api
                 F_DutyId = userModel.F_DutyId
             };
 
-            var ret = Repository.Add(adduser).Result > 0 ? true : false;
+            var ret = Repository.Add(adduser).Result;
             return ret.ToJson();
 
         }

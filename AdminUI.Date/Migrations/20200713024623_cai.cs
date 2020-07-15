@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdminUI.Date.Migrations
 {
-    public partial class indexts : Migration
+    public partial class cai : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -386,7 +386,7 @@ namespace AdminUI.Date.Migrations
                     F_Id = table.Column<string>(unicode: false, maxLength: 50, nullable: false, comment: "用户主键"),
                     F_Account = table.Column<string>(unicode: false, maxLength: 50, nullable: true, comment: "账户"),
                     F_RealName = table.Column<string>(unicode: false, maxLength: 50, nullable: true, comment: "姓名"),
-                    F_UserPassword = table.Column<string>(unicode: false, maxLength: 50, nullable: true, comment: "用户密码"),
+                    F_UserPassword = table.Column<string>(nullable: true),
                     F_NickName = table.Column<string>(unicode: false, maxLength: 50, nullable: true, comment: "呢称"),
                     F_HeadIcon = table.Column<string>(unicode: false, maxLength: 50, nullable: true, comment: "头像"),
                     F_Gender = table.Column<bool>(nullable: true, comment: "性别"),

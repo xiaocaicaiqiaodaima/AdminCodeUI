@@ -5161,6 +5161,7 @@
       "AdminUI.Code >= 1.0.0",
       "AdminUI.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.5",
+      "Microsoft.EntityFrameworkCore.Design >= 3.1.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.5",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.5",
       "Pomelo.EntityFrameworkCore.MySql >= 3.1.1"
@@ -5172,11 +5173,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj",
+      "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
       "projectName": "AdminUI.Date",
-      "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj",
+      "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
       "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-      "outputPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\obj\\",
+      "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5192,11 +5193,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
-              "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj"
+            "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+              "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
             },
-            "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj": {
-              "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj"
+            "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+              "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
             }
           }
         }
@@ -5211,6 +5212,12 @@
       "netcoreapp3.1": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[3.1.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[3.1.5, )"
           },

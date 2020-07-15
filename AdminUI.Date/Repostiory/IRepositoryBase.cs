@@ -11,7 +11,7 @@ namespace AdminUI.Date.Repostiory
     {
         Task<TEntity> QueryById(object objId);
         Task<TEntity> QueryById(object objId, bool blnUseCache = false);
-        Task<int> Add(TEntity model);
+        Task<bool> Add(TEntity model);
 
         Task<int> SubmitForm(TEntity model, TEntity models);
         Task<bool> DeleteById(object id);

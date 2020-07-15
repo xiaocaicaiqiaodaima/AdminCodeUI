@@ -5339,11 +5339,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj",
+      "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj",
       "projectName": "AdminUI",
-      "projectPath": "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj",
+      "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj",
       "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-      "outputPath": "E:\\软件\\AdminUICode\\AdminUI\\obj\\",
+      "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5359,14 +5359,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
-              "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj"
+            "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+              "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
             },
-            "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj": {
-              "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj"
+            "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {
+              "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj"
             },
-            "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj": {
-              "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj"
+            "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+              "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
             }
           }
         }

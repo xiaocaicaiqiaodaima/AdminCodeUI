@@ -111,7 +111,7 @@ namespace AdminUI.Controllers.Api
 
 
             };
-            var ret = Repository.Add(list).Result > 0 ? true : false;
+            var ret = Repository.Add(list).Result;
             return ret.ToJson();
         }
         // DELETE api/<controller>/5

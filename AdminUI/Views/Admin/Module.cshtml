@@ -13,9 +13,6 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
 </script>
 
-
-
-
 <script src="~/lib/layui/layui.js" charset="utf-8"></script>
 <script>
     layui.config({
@@ -45,14 +42,14 @@
                 iconIndex: 1,  // 折叠图标显示在第几列
                 idName: 'F_Id',
                 childName: 'children',
-                openName:'F_IsExpand'
+                openName: 'F_IsExpand'
 
             },
             cols: [
 
                 { type: 'numbers', fixed: 'left', title: '序号', width: 60 },
-                { field: 'F_FullName', title: '名称', width: 160, align:'center' },
-                { field: 'F_UrlAddress', title: '链接', width: 260, align:'center' },
+                { field: 'F_FullName', title: '名称', width: 160, align: 'center' },
+                { field: 'F_UrlAddress', title: '链接', width: 260, align: 'center' },
                 {
                     field: 'F_Icon', title: '图标', width: 100, templet: function (item) {
                         if (item.F_Icon.indexOf('fa-') !== -1) {
@@ -170,7 +167,7 @@
 
                         iframeWin.layui.form.render();
                     }
-                    ,end: function () { //最后执行reload
+                    , end: function () { //最后执行reload
                         location.reload();
                     }
 

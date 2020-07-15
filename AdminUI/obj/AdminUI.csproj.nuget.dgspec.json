@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj": {}
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj": {}
   },
   "projects": {
-    "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj",
+        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
         "projectName": "AdminUI.Code",
-        "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj",
+        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
         "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\obj\\",
+        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -66,14 +66,14 @@
         }
       }
     },
-    "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj": {
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj",
+        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
         "projectName": "AdminUI.Date",
-        "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj",
+        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
         "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\obj\\",
+        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,11 +89,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
-                "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj"
+              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
               },
-              "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj": {
-                "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj"
+              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
               }
             }
           }
@@ -108,6 +108,12 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.5, )"
             },
@@ -145,14 +151,14 @@
         }
       }
     },
-    "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
         "projectName": "AdminUI.Domain",
-        "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj",
+        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
         "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\obj\\",
+        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -197,14 +203,14 @@
         }
       }
     },
-    "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj": {
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj",
+        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj",
         "projectName": "AdminUI",
-        "projectPath": "E:\\软件\\AdminUICode\\AdminUI\\AdminUI.csproj",
+        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\AdminUI.csproj",
         "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "E:\\软件\\AdminUICode\\AdminUI\\obj\\",
+        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -220,14 +226,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
-                "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj"
+              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
               },
-              "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj": {
-                "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj"
+              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {
+                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj"
               },
-              "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj": {
-                "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Domain\\AdminUI.Domain.csproj"
+              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
               }
             }
           }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminUI.Date.Migrations
 {
     [DbContext(typeof(NFineDBContext))]
-    [Migration("20200630024433_indexts")]
-    partial class indexts
+    [Migration("20200713024623_cai")]
+    partial class cai
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

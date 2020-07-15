@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0IteGM8Dmk/7kX8fVfLCMYtQciMkr1HM0h0WKymaFpGSJWD6CGLHeJYQQgigCYvUB6+W3PNp38/K4yXRfkEhdg==",
+  "dgSpecHash": "xnWaH8Sy2KCkw2t89r7AnaINOMa5npPfjNomknUlrTI9+wa24+TfpoxOqhFXpjkvsFMnmOfwIYdYuXyraxoW7Q==",
   "success": true,
-  "projectFilePath": "E:\\软件\\AdminUICode\\AdminUI.Date\\AdminUI.Date.csproj",
+  "projectFilePath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SanKeYou\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\SanKeYou\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

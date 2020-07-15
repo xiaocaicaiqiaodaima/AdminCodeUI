@@ -35,11 +35,11 @@ namespace AdminUI.Date.Repostiory
             return await _context.Set<TEntity>().FindAsync(objId, blnUseCache);
         }
 
-        public async Task<int> Add(TEntity entity)
+        public async Task<bool> Add(TEntity entity)
         {
 
             await Task.FromResult(_context.Entry<TEntity>(entity).State = EntityState.Added);
-            var list = _context.SaveChanges();
+            var list = _context.SaveChanges()>0?true:false;
             return list;
         }
 

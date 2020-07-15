@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {}
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {}
   },
   "projects": {
-    "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj": {
+    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj",
+        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
         "projectName": "AdminUI.Code",
-        "projectPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\AdminUI.Code.csproj",
+        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
         "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "E:\\软件\\AdminUICode\\AdminUI.Code\\obj\\",
+        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
