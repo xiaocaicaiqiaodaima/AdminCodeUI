@@ -21,11 +21,19 @@ namespace AdminUI.Controllers
         public IActionResult Organize() => View();
         [Authorize]
         public IActionResult OrganizeForm() => View();
+
+        [Authorize]
+        public IActionResult Role() => View();
+        [Authorize]
+        public IActionResult RoleForm() => View();
         [Authorize]
         public IActionResult Module() => View();
         [Authorize]
         public IActionResult ModuleForm() => View();
         [Authorize]
         public IActionResult Log() => View();
+
+        public IActionResult HistoryInformation() => View();
+        public IActionResult Information() => View();
     }
 }

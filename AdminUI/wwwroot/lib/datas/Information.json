@@ -5,7 +5,18 @@
   "data": [
     {
       "DeviceID": "10001",
-      "StationName": "鏁欏1",
+      "StationName": "教室1",
+      "email": "xianxin@layui.com",
+      "PPM": "0",
+      "LEL": "0",
+      "Temperature": "30",
+      "Humidity": "60",
+      "Ip_Address": "192.168.0.8",
+      "Time": "2016-10-14"
+    },
+    {
+      "DeviceID": "10001",
+      "StationName": "教室1",
       "email": "xianxin@layui.com",
       "PPM": "0",
       "LEL": "0",
@@ -16,7 +27,18 @@
     },
     {
       "DeviceID": "10002",
-      "StationName": "鏁欏2",
+      "StationName": "教室2",
+      "email": "xianxin@layui.com",
+      "PPM": "0",
+      "LEL": "0",
+      "Temperature": "30",
+      "Humidity": "60",
+      "Ip_Address": "192.168.0.8",
+      "Time": "2016-10-14"
+    },
+    {
+      "DeviceID": "10002",
+      "StationName": "教室2",
       "email": "xianxin@layui.com",
       "PPM": "0",
       "LEL": "0",
@@ -27,7 +49,18 @@
     },
     {
       "DeviceID": "10003",
-      "StationName": "鏁欏3",
+      "StationName": "教室3",
+      "email": "xianxin@layui.com",
+      "PPM": "0",
+      "LEL": "0",
+      "Temperature": "30",
+      "Humidity": "60",
+      "Ip_Address": "192.168.0.8",
+      "Time": "2016-10-14"
+    },
+    {
+      "DeviceID": "10003",
+      "StationName": "教室3",
       "email": "xianxin@layui.com",
       "PPM": "0",
       "LEL": "0",
@@ -38,7 +71,7 @@
     },
     {
       "DeviceID": "10004",
-      "StationName": "鏁欏4",
+      "StationName": "教室4",
       "email": "xianxin@layui.com",
       "PPM": "0",
       "LEL": "0",
@@ -48,41 +81,8 @@
       "Time": "2016-10-14"
     },
     {
-      "DeviceID": "10005",
-      "StationName": "鏁欏5",
-      "email": "xianxin@layui.com",
-      "PPM": "0",
-      "LEL": "0",
-      "Temperature": "30",
-      "Humidity": "60",
-      "Ip_Address": "192.168.0.8",
-      "Time": "2016-10-14"
-    },
-    {
-      "DeviceID": "10006",
-      "StationName": "鏁欏6",
-      "email": "xianxin@layui.com",
-      "PPM": "0",
-      "LEL": "0",
-      "Temperature": "30",
-      "Humidity": "60",
-      "Ip_Address": "192.168.0.8",
-      "Time": "2016-10-14"
-    },
-    {
-      "DeviceID": "10007",
-      "StationName": "鏁欏7",
-      "email": "xianxin@layui.com",
-      "PPM": "0",
-      "LEL": "0",
-      "Temperature": "30",
-      "Humidity": "60",
-      "Ip_Address": "192.168.0.8",
-      "Time": "2016-10-14"
-    },
-    {
-      "DeviceID": "10008",
-      "StationName": "鏁欏1",
+      "DeviceID": "10004",
+      "StationName": "教室4",
       "email": "xianxin@layui.com",
       "PPM": "0",
       "LEL": "0",

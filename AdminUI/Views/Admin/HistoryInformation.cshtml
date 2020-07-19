@@ -1,0 +1,47 @@
+﻿
+
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        请选择：
+        <div class="layui-input-inline">
+            <select name="interest" id="F_OrganizeId" lay-filter="aihao">
+                <option value="10001">教室1</option>
+                <option value="10002">教室2</option>
+                <option value="10003">教室3</option>
+                <option value="10004">教室4</option>
+            </select>
+        </div>
+        <button class="layui-btn" data-type="reload">确定</button>
+    </div>
+</form>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script>
+
+    layui.use('table', function () {
+        var table = layui.table;
+        table.render({
+            elem: '#test'
+            , url: '../../lib/datas/Information.json'
+            , title: '历史数据表'
+            , cols: [[
+                { field: 'DeviceID', title: '站点ID', width: 80, fixed: 'left' }
+                , { field: 'StationName', title: '名称', width: 120 }
+                , { field: 'Ip_Address', title: 'IP', width: 120 }
+                , { field: 'PPM', title: '气体浓度', width: 150 }
+                , { field: 'LEL', title: '%LEL', width: 150 }
+                , { field: 'Temperature', title: '温度', width: 80 }
+                , { field: 'Humidity', title: '湿度', width: 80 }
+                , { field: 'Time', title: '时间', width: 100 }
+
+            ]]
+            , page: true
+
+        });
+
+
+
+
+
+    });
+</script>

@@ -29,7 +29,7 @@ namespace AdminUI.Controllers.Api
         {
             paginated.page = page;
             paginated.limit = limit;
-            var list =  Repository.Query(paginated).Result;
+            var list = Repository.Query(paginated).Result;
             var ret = new { code = 0, msg = "", data = list, count = paginated.records };
             return ret.ToJson();
         }
@@ -46,16 +46,20 @@ namespace AdminUI.Controllers.Api
         [HttpPost]
         public object Post([FromBody] RoleModel role)
         {
-           var addrole = new Sys_Role { 
-            F_Id= Common.GuId(),
-            F_OrganizeId=role.F_OrganizeId,
-            F_Category=role.F_Category,
-            F_EnCode=role.F_EnCode,
-            F_FullName=role.F_FullName,
-            F_Type=role.F_Type,
-            F_SortCode=role.F_SortCode,
-            F_CreatorTime=DateTime.Now           
-           };
+            var addrole = new Sys_Role
+            {
+                F_Id = Common.GuId(),
+                F_OrganizeId = role.F_OrganizeId,
+                F_Category = role.F_Category,
+                F_EnCode = role.F_EnCode,
+                F_FullName = role.F_FullName,
+                F_Type = role.F_Type,
+                F_SortCode = int.Parse(role.F_SortCode),
+                F_EnabledMark = role.F_EnabledMark=="on"?true:false,
+                F_AllowEdit = role.F_AllowEdit == "on" ? true : false,
+                F_AllowDelete = role.F_AllowDelete == "on" ? true : false,
+                F_CreatorTime = DateTime.Now
+            };
             var ret = Repository.Add(addrole).Result;
             return ret.ToJson();
         }
@@ -66,14 +70,17 @@ namespace AdminUI.Controllers.Api
         {
             var updaterole = new Sys_Role
             {
-                F_Id =role.F_Id,
+                F_Id = role.F_Id,
                 F_OrganizeId = role.F_OrganizeId,
                 F_Category = role.F_Category,
                 F_EnCode = role.F_EnCode,
                 F_FullName = role.F_FullName,
                 F_Type = role.F_Type,
-                F_SortCode = role.F_SortCode
-               
+                F_SortCode = int.Parse(role.F_SortCode),
+                F_EnabledMark = role.F_EnabledMark == "on" ? true : false,
+                F_AllowEdit = role.F_AllowEdit == "on" ? true : false,
+                F_AllowDelete = role.F_AllowDelete == "on" ? true : false,
+                F_CreatorTime = Convert.ToDateTime(role.F_CreatorTime)
             };
             var ret = Repository.Update(updaterole).Result;
             return ret.ToJson();
@@ -81,8 +88,8 @@ namespace AdminUI.Controllers.Api
         }
 
         // DELETE api/<RoleController>/5
-        [HttpDelete("{id}")]
-        public object Delete(string id)
+        [HttpDelete]
+        public object Delete([FromForm] string id)
         {
             var ret = Repository.DeleteById(id).Result;
             return ret.ToJson();

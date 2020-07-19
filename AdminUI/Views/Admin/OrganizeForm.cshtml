@@ -5,7 +5,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">选择父类</label>
+                <label class="layui-form-label">归属</label>
                 <div class="layui-input-inline">
                     <select name="F_ParentId" id="F_ParentId" lay-filter="aihao">
                         <option value="0">父节点</option>
@@ -13,34 +13,26 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">目标</label>
+                <label class="layui-form-label">分类</label>
                 <div class="layui-input-inline">
-                    <select name="F_Target" id="F_Target" lay-filter="aihao">
-                        <option value="">==请选择==</option>
-                        <option value="expand" title="expand">无页面</option>
-                        <option value="iframe" title="iframe">框架页</option>
-                        <option value="open" title="open">弹出页</option>
-                        <option value="blank" title="blank">新窗口</option>
-
+                    <select name="F_CategoryId" id="F_CategoryId" lay-filter="aihao">
                     </select>
                 </div>
             </div>
-
-
-
         </div>
 
         <div class="layui-form-item">
             <div class="layui-inline">
-                <label class="layui-form-label">名称</label>
+                <label class="layui-form-label">角色名称</label>
                 <div class="layui-input-inline">
                     <input type="text" name="F_FullName" id="F_FullName" placeholder="请输入" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">链接</label>
+                <label class="layui-form-label">负责人</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="F_UrlAddress" id="F_UrlAddress" placeholder="请输入" autocomplete="off" class="layui-input">
+                    <input type="text" name="F_ManagerId" id="F_ManagerId" placeholder="请输入" autocomplete="off" class="layui-input">
+
                 </div>
             </div>
         </div>
@@ -48,19 +40,22 @@
         <div class="layui-form-item">
 
             <div class="layui-inline">
-                <label class="layui-form-label">图标</label>
+                <label class="layui-form-label">排序</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="F_Icon" id="F_Icon" placeholder="请输入" autocomplete="off" class="layui-input">
+                    <input type="text" name="F_SortCode" id="F_SortCode" placeholder="请输入" autocomplete="off" class="layui-input">
+
                 </div>
-
             </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">创建时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="F_CreatorTime" id="F_CreatorTime" placeholder="请输入" autocomplete="off" class="layui-input">
 
+                </div>
+            </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <input type="checkbox" name="F_IsMenu" id="F_IsMenu" title="菜单">
-                <input type="checkbox" name="F_IsExpand" id="F_IsExpand" title="展开">
-                <input type="checkbox" name="F_IsPublic" id="F_IsPublic" title="公共">
                 <input type="checkbox" name="F_AllowEdit" id="F_AllowEdit" title="允许编辑">
                 <input type="checkbox" name="F_AllowDelete" id="F_AllowDelete" title="允许删除">
                 <input type="checkbox" name="F_EnabledMark" id="F_EnabledMark" title="有效" checked="">
@@ -88,37 +83,24 @@
         }
         return "";
     }
-    var ParentId = $.request("F_ParentId");
+    var keyValue = $.request("keyValue");
 
-
+    $.each(top.clients.organize, function (index, item) {
+        $('#F_ParentId').append(new Option(item.fullname, index));
+    });
+    $.each(top.clients.dataItems.OrganizeCategory, function (index, item) {
+        $('#F_CategoryId').append(new Option(item, index));
+    });
 
     layui.use('form', function () {
         var form = layui.form;
-      
-
-        $.ajax({
-            url: '/api/Module/GetTarget',
-            dataType: 'json',
-            type: 'get',
-            success: function (res) {
-                $.each(res, function (index, item) {
-                    $('#F_ParentId').append(new Option(item.F_FullName, item.F_Id));
-
-                });
-                $('#F_ParentId').val(ParentId);
-                form.render("select");
-
-
-
-            }
-        });
 
 
         form.on('submit(edit)', function (data) {
-            if (!!ParentId) {
+            if (!!keyValue) {
                 $.ajax({
                     type: "Put",
-                    url: "/api/Module",
+                    url: "/api/Organize",
                     data: JSON.stringify(data.field),
                     contentType: "application/json;charset=UTF-8",
                     dataType: "json",
@@ -126,12 +108,14 @@
 
                         var index = parent.layer.getFrameIndex(window.name);
                         if (ret == true) {
-                            parent.layer.msg("操作成功", { icon: 1, time: 3000 });
-                            parent.layer.close(index); //再执行关闭
+                            layer.msg("操作成功", { icon: 1 }, function () {
+                                parent.layer.close();
+                                window.parent.location.reload();
+                            });
 
                         }
                         else {
-                            parent.layer.msg("操作失败", { icon: 2, time: 3000 });
+                            layer.msg("操作失败", { icon: 2, time: 3000 });
                             parent.layer.close(index); //再执行关闭
                         }
                     }
@@ -140,19 +124,20 @@
             else {
                 $.ajax({
                     type: "post",
-                    url: "/api/module/add",
+                    url: "/api/Organize",
                     contentType: "application/json;charset=UTF-8",
                     dataType: "json",
                     data: JSON.stringify(data.field),
                     success: function (ret) {
                         var index = parent.layer.getFrameIndex(window.name);
                         if (ret == true) {
-                            parent.layer.msg("操作成功", { icon: 1 });
-                            parent.layer.close(index); //再执行关闭
-                            $(".layui-laypage-btn").click();
+                            layer.msg("操作成功", { icon: 1 }, function () {
+                                parent.layer.close();
+                                window.parent.location.reload();
+                            });
                         }
                         else {
-                            parent.layer.msg("操作失败", { icon: 2 });
+                            layer.msg("操作失败", { icon: 2 });
                             parent.layer.close(index); //再执行关闭
                         }
                     }

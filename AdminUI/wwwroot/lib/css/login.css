@@ -1,15 +1,14 @@
 .beg-login-bg {
-	background: url(../Images/login-bg-1.jpg) no-repeat center center fixed;
-	background-color: #393D49;
+	background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+	background-color: #f0f2f5;
 }
 
 .beg-login-box {
 	width: 450px;
 	height: 330px;
 	margin: 10% auto;
-	background-color: rgba(255, 255, 255, 0.407843);
 	border-radius: 10px;
-	color: aliceblue;
+	color: black;
 }
 
 .beg-login-box header {

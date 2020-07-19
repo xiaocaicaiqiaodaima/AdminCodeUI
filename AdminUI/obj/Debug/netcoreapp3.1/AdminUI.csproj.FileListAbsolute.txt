@@ -363,3 +363,7 @@ C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\stati
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.dll
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.pdb
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.genruntimeconfig.cache
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HistoryInformation.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Information.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\OrganizeForm.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RoleForm.cshtml.g.cs
