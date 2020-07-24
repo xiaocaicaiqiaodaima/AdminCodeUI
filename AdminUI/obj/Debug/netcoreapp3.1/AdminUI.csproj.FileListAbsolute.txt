@@ -367,3 +367,6 @@ C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Information.cshtml.g.cs
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\OrganizeForm.cshtml.g.cs
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RoleForm.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\HistoryWarn.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\PendingWarn.cshtml.g.cs
+C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ProcessedWarn.cshtml.g.cs

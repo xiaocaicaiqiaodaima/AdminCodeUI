@@ -27,9 +27,10 @@ namespace AdminUI
             services.AddControllersWithViews();
 
             #region 数据库连接配置
+
             services.AddDbContext<NFineDBContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DB"));
+                options.UseMySql(Configuration.GetConnectionString("MYDB"));
             });
             #endregion
             #region 注册接口服务

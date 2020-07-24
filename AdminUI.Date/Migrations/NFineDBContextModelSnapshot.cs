@@ -3,7 +3,6 @@ using System;
 using AdminUI.Date.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdminUI.Date.Migrations
@@ -16,13 +15,12 @@ namespace AdminUI.Date.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Area", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -32,13 +30,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建日期");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -46,29 +44,29 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -78,7 +76,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -88,13 +86,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("层次");
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_SimpleSpelling")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("简拼")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -115,7 +113,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_DbBackup", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("备份主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -125,7 +123,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("备份时间");
 
                     b.Property<string>("F_BackupType")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("备份类型")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -135,19 +133,19 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_DbName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("数据库名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -155,35 +153,35 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FileName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("文件名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_FilePath")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("文件路径")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_FileSize")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("文件大小")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -193,7 +191,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -214,7 +212,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_FilterIP", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("过滤主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -224,13 +222,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -238,23 +236,23 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_EndIP")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("结束IP")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -264,7 +262,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -274,13 +272,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<string>("F_StartIP")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("开始IP")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_Type")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("类型");
 
                     b.HasKey("F_Id")
@@ -295,7 +293,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Items", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("主表主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -305,13 +303,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建日期");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -319,35 +317,35 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_IsTree")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("树型");
 
                     b.Property<DateTime?>("F_LastModifyTime")
@@ -355,7 +353,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -365,7 +363,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("层次");
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -386,7 +384,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_ItemsDetail", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("明细主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -396,13 +394,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建日期");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -410,39 +408,39 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<bool?>("F_IsDefault")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("默认");
 
                     b.Property<string>("F_ItemCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ItemId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("主表主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ItemName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -452,7 +450,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -462,13 +460,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("层次");
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_SimpleSpelling")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("简拼")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -489,13 +487,13 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Log", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("日志主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Account")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户名")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -505,7 +503,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -515,47 +513,47 @@ namespace AdminUI.Date.Migrations
                         .HasComment("日期");
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_IPAddress")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("IP地址")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_IPAddressName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("IP所在城市")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ModuleId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("系统模块Id")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ModuleName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("系统模块")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_NickName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("姓名")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_Result")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("结果");
 
                     b.Property<string>("F_Type")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("类型")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -572,17 +570,17 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Module", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("模块主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_AllowDelete")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许删除");
 
                     b.Property<bool?>("F_AllowEdit")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许编辑");
 
                     b.Property<DateTime?>("F_CreatorTime")
@@ -590,13 +588,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建日期");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -604,49 +602,49 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Icon")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("图标")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_IsExpand")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("展开");
 
                     b.Property<bool?>("F_IsMenu")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("菜单");
 
                     b.Property<bool?>("F_IsPublic")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("公共");
 
                     b.Property<DateTime?>("F_LastModifyTime")
@@ -654,7 +652,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -664,7 +662,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("层次");
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -674,13 +672,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<string>("F_Target")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("目标")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_UrlAddress")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("连接")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -697,17 +695,17 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_ModuleButton", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("按钮主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_AllowDelete")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许删除");
 
                     b.Property<bool?>("F_AllowEdit")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许编辑");
 
                     b.Property<DateTime?>("F_CreatorTime")
@@ -715,13 +713,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建日期");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -729,45 +727,45 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Icon")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("图标")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_IsPublic")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("公共");
 
                     b.Property<string>("F_JsEvent")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("事件")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -777,7 +775,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -791,13 +789,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("位置");
 
                     b.Property<string>("F_ModuleId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("模块主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -807,11 +805,11 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<bool?>("F_Split")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("分开线");
 
                     b.Property<string>("F_UrlAddress")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("连接")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -828,7 +826,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_ModuleForm", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("表单主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -838,13 +836,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -852,34 +850,34 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FormJson")
-                        .HasColumnType("varchar(max)")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4")
                         .HasComment("表单控件Json")
                         .IsUnicode(false);
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -889,13 +887,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ModuleId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("模块主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -916,7 +914,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_ModuleFormInstance", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("表单实例主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -926,25 +924,25 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_FormId")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("表单主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_InstanceJson")
-                        .HasColumnType("varchar(max)")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4")
                         .HasComment("表单实例Json")
                         .IsUnicode(false);
 
                     b.Property<string>("F_ObjectId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("对象主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -965,33 +963,33 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Organize", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("组织主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Address")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("联系地址")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_AllowDelete")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许删除");
 
                     b.Property<bool?>("F_AllowEdit")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许编辑");
 
                     b.Property<string>("F_AreaId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("归属区域")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_CategoryId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("分类")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1001,13 +999,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -1015,41 +1013,41 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Email")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("邮箱")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_Fax")
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
                         .HasComment("传真")
                         .HasMaxLength(20)
                         .IsUnicode(false);
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1059,7 +1057,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1069,25 +1067,25 @@ namespace AdminUI.Date.Migrations
                         .HasComment("层次");
 
                     b.Property<string>("F_ManagerId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("负责人")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_MobilePhone")
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
                         .HasComment("手机")
                         .HasMaxLength(20)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ParentId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("父级")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ShortName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("简称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1097,13 +1095,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<string>("F_TelePhone")
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
                         .HasComment("电话")
                         .HasMaxLength(20)
                         .IsUnicode(false);
 
                     b.Property<string>("F_WeChat")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("微信")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1120,17 +1118,17 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_Role", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("角色主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_AllowDelete")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许删除");
 
                     b.Property<bool?>("F_AllowEdit")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许编辑");
 
                     b.Property<int?>("F_Category")
@@ -1142,13 +1140,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -1156,29 +1154,29 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_EnCode")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("编号")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<string>("F_FullName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("名称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1188,13 +1186,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_OrganizeId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("组织主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1204,7 +1202,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<string>("F_Type")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("类型")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1221,7 +1219,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_RoleAuthorize", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("角色授权主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1231,13 +1229,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ItemId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("项目主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1247,7 +1245,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("项目类型1-模块2-按钮3-列表");
 
                     b.Property<string>("F_ObjectId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("对象主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1272,13 +1270,13 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_User", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Account")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("账户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1292,13 +1290,13 @@ namespace AdminUI.Date.Migrations
                         .HasComment("创建时间");
 
                     b.Property<string>("F_CreatorUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("创建用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_DeleteMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("删除标志");
 
                     b.Property<DateTime?>("F_DeleteTime")
@@ -1306,51 +1304,51 @@ namespace AdminUI.Date.Migrations
                         .HasComment("删除时间");
 
                     b.Property<string>("F_DeleteUserId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("删除用户")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_DepartmentId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("部门主键")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Description")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("描述")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_DutyId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("岗位主键")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Email")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("邮箱")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_EnabledMark")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("有效标志");
 
                     b.Property<bool?>("F_Gender")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("性别");
 
                     b.Property<string>("F_HeadIcon")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("头像")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_IsAdministrator")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("是否管理员");
 
                     b.Property<DateTime?>("F_LastModifyTime")
@@ -1358,43 +1356,43 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改时间");
 
                     b.Property<string>("F_LastModifyUserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("最后修改用户")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_ManagerId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("主管主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_MobilePhone")
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
                         .HasComment("手机")
                         .HasMaxLength(20)
                         .IsUnicode(false);
 
                     b.Property<string>("F_NickName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("呢称")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_OrganizeId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("组织主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_RealName")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("姓名")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_RoleId")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("角色主键")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -1404,7 +1402,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("安全级别");
 
                     b.Property<string>("F_Signature")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("个性签名")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -1414,10 +1412,10 @@ namespace AdminUI.Date.Migrations
                         .HasComment("排序码");
 
                     b.Property<string>("F_UserPassword")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("F_WeChat")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("微信")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1434,7 +1432,7 @@ namespace AdminUI.Date.Migrations
             modelBuilder.Entity("AdminUI.Date.Models.Sys_UserLogOn", b =>
                 {
                     b.Property<string>("F_Id")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户登录主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1448,7 +1446,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("允许登录时间开始");
 
                     b.Property<string>("F_AnswerQuestion")
-                        .HasColumnType("varchar(500)")
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
                         .HasComment("密码提示答案")
                         .HasMaxLength(500)
                         .IsUnicode(false);
@@ -1458,7 +1456,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("最后修改密码日期");
 
                     b.Property<bool?>("F_CheckIPAddress")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("是否访问限制");
 
                     b.Property<DateTime?>("F_FirstVisitTime")
@@ -1466,7 +1464,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("第一次访问时间");
 
                     b.Property<string>("F_Language")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("系统语言")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1488,7 +1486,7 @@ namespace AdminUI.Date.Migrations
                         .HasComment("登录次数");
 
                     b.Property<bool?>("F_MultiUserLogin")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("允许同时有多用户登录");
 
                     b.Property<DateTime?>("F_PreviousVisitTime")
@@ -1496,35 +1494,35 @@ namespace AdminUI.Date.Migrations
                         .HasComment("上一次访问时间");
 
                     b.Property<string>("F_Question")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("密码提示问题")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_Theme")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("系统样式")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_UserId")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户主键")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<bool?>("F_UserOnLine")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasComment("在线状态");
 
                     b.Property<string>("F_UserPassword")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户密码")
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<string>("F_UserSecretkey")
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasComment("用户秘钥")
                         .HasMaxLength(50)
                         .IsUnicode(false);
@@ -1536,6 +1534,102 @@ namespace AdminUI.Date.Migrations
                     b.ToTable("Sys_UserLogOn");
 
                     b.HasComment("用户登录信息表");
+                });
+
+            modelBuilder.Entity("AdminUI.Date.Models.mstb_monitorcurrent", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Address_Index")
+                        .IsRequired()
+                        .HasColumnType("varchar(1) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Ip_Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Monitor_Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Monitor_Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Monitor_Value")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Unit")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("mstb_monitorcurrent");
+                });
+
+            modelBuilder.Entity("AdminUI.Date.Models.mstb_monitorhistory", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Address_Index")
+                        .IsRequired()
+                        .HasColumnType("varchar(1) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Ip_Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Monitor_Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Monitor_Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Monitor_Value")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Unit")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("mstb_monitorhistory");
+                });
+
+            modelBuilder.Entity("AdminUI.Date.Models.mstb_monitorstate", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Address_Index")
+                        .IsRequired()
+                        .HasColumnType("varchar(1) CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Ip_Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Monitor_Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Monitor_Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("State")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("mstb_monitorstate");
                 });
 #pragma warning restore 612, 618
         }

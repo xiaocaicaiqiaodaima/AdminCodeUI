@@ -1,12 +1,69 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AdminUI.Date.Migrations
 {
-    public partial class cai : Migration
+    public partial class mysql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "mstb_monitorcurrent",
+                columns: table => new
+                {
+                    ID = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Ip_Address = table.Column<string>(nullable: true),
+                    Address_Index = table.Column<string>(nullable: false),
+                    Monitor_Name = table.Column<string>(nullable: true),
+                    Monitor_Value = table.Column<string>(nullable: true),
+                    Unit = table.Column<string>(nullable: true),
+                    Monitor_Time = table.Column<DateTime>(nullable: false),
+                    Remark = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_mstb_monitorcurrent", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "mstb_monitorhistory",
+                columns: table => new
+                {
+                    ID = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Ip_Address = table.Column<string>(nullable: true),
+                    Address_Index = table.Column<string>(nullable: false),
+                    Monitor_Name = table.Column<string>(nullable: true),
+                    Monitor_Value = table.Column<string>(nullable: true),
+                    Unit = table.Column<string>(nullable: true),
+                    Monitor_Time = table.Column<DateTime>(nullable: false),
+                    Remark = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_mstb_monitorhistory", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "mstb_monitorstate",
+                columns: table => new
+                {
+                    ID = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Ip_Address = table.Column<string>(nullable: true),
+                    Address_Index = table.Column<string>(nullable: false),
+                    Monitor_Name = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
+                    Monitor_Time = table.Column<DateTime>(nullable: false),
+                    Remark = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_mstb_monitorstate", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Sys_Area",
                 columns: table => new
@@ -30,8 +87,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_AREA", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_AREA", x => x.F_Id);
                 },
                 comment: "行政区域表");
 
@@ -59,8 +115,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_DBBACKUP", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_DBBACKUP", x => x.F_Id);
                 },
                 comment: "数据库备份");
 
@@ -85,8 +140,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_FILTERIP", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_FILTERIP", x => x.F_Id);
                 },
                 comment: "过滤IP");
 
@@ -113,8 +167,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_ITEMS", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_ITEMS", x => x.F_Id);
                 },
                 comment: "选项主表");
 
@@ -143,8 +196,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_ITEMDETAIL", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_ITEMDETAIL", x => x.F_Id);
                 },
                 comment: "选项明细表");
 
@@ -168,8 +220,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_LOG", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_LOG", x => x.F_Id);
                 },
                 comment: "系统日志");
 
@@ -203,8 +254,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_MODULE", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_MODULE", x => x.F_Id);
                 },
                 comment: "系统模块");
 
@@ -239,8 +289,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_MODULEBUTTON", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_MODULEBUTTON", x => x.F_Id);
                 },
                 comment: "模块按钮");
 
@@ -266,8 +315,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_MODULEFORM", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_MODULEFORM", x => x.F_Id);
                 },
                 comment: "模块表单");
 
@@ -285,8 +333,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_MODULEFORMINSTANCE", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_MODULEFORMINSTANCE", x => x.F_Id);
                 },
                 comment: "模块表单实例");
 
@@ -324,8 +371,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_ORGANIZE", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_ORGANIZE", x => x.F_Id);
                 },
                 comment: "组织表");
 
@@ -354,8 +400,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_ROLE", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_ROLE", x => x.F_Id);
                 },
                 comment: "角色表");
 
@@ -374,8 +419,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_ROLEAUTHORIZE", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_ROLEAUTHORIZE", x => x.F_Id);
                 },
                 comment: "角色授权表");
 
@@ -415,8 +459,7 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_USER", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_USER", x => x.F_Id);
                 },
                 comment: "用户表");
 
@@ -447,14 +490,22 @@ namespace AdminUI.Date.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SYS_USERLOGON", x => x.F_Id)
-                        .Annotation("SqlServer:Clustered", false);
+                    table.PrimaryKey("PK_SYS_USERLOGON", x => x.F_Id);
                 },
                 comment: "用户登录信息表");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "mstb_monitorcurrent");
+
+            migrationBuilder.DropTable(
+                name: "mstb_monitorhistory");
+
+            migrationBuilder.DropTable(
+                name: "mstb_monitorstate");
+
             migrationBuilder.DropTable(
                 name: "Sys_Area");
 

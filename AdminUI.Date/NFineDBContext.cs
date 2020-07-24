@@ -30,9 +30,30 @@ namespace AdminUI.Date.Models
         public virtual DbSet<Sys_UserLogOn> Sys_UserLogOn { get; set; }
 
 
+        public virtual DbSet<mstb_monitorhistory> mstb_monitorhistory { get; set; }
+        public virtual DbSet<mstb_monitorcurrent> mstb_monitorcurrent { get; set; }
+        public virtual DbSet<mstb_monitorstate> mstb_monitorstate { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<mstb_monitorhistory>(entity => {
+                entity.HasKey(e=>e.ID);
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<mstb_monitorcurrent>(entity => {
+                entity.HasKey(e => e.ID);
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<mstb_monitorstate>(entity => {
+                entity.HasKey(e => e.ID);
+                entity.Property(e => e.ID).ValueGeneratedOnAdd();
+            });
+
             modelBuilder.Entity<Sys_Area>(entity =>
             {
                 entity.HasKey(e => e.F_Id)

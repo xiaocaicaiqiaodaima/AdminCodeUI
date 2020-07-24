@@ -34,6 +34,11 @@ namespace AdminUI.Controllers
         public IActionResult Log() => View();
 
         public IActionResult HistoryInformation() => View();
+        public IActionResult HistoryInformationForm() => View();
         public IActionResult Information() => View();
+
+        public IActionResult HistoryWarn() => View();
+        public IActionResult ProcessedWarn() => View();
+        public IActionResult PendingWarn() => View();
     }
 }
