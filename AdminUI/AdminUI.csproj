@@ -26,4 +26,6 @@
     <ProjectReference Include="..\AdminUI.Domain\AdminUI.Domain.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="http://json.schemastore.org/jovo-language-model" /></VisualStudio></ProjectExtensions>
+
 </Project>

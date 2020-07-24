@@ -1,11 +1,29 @@
 ﻿using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
+using AdminUI.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdminUI.Controllers
 {
     public class ClientsData
     {
+
+
+        public List<ItemsModel> addchildren(List<Sys_Items> list, string id)
+        {
+            List<ItemsModel> itemsModels = new List<ItemsModel>();
+            foreach (var item in list.Where(t => t.F_ParentId == id))
+            {
+                ItemsModel itemsModel = new ItemsModel();
+                itemsModel.title = item.F_FullName;
+                itemsModel.Id = item.F_Id;
+                itemsModel.children = addchildren(list, item.F_Id);
+                itemsModels.Add(itemsModel);
+            }
+
+            return itemsModels;
+        }
 
         public object GetDataItemList(IRepositoryBase<Sys_ItemsDetail> ItemsDetail, IRepositoryBase<Sys_Items> Items)
         {

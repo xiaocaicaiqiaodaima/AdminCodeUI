@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {}
+    "D:\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+    "D:\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
+        "projectUniqueName": "D:\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
         "projectName": "AdminUI.Code",
-        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
-        "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\obj\\",
+        "projectPath": "D:\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj",
+        "packagesPath": "C:\\Users\\sanke\\.nuget\\packages\\",
+        "outputPath": "D:\\AdminCodeUI\\AdminUI.Code\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sanke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,21 +62,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015135\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {
+    "D:\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
+        "projectUniqueName": "D:\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
         "projectName": "AdminUI.Date",
-        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
-        "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Date\\obj\\",
+        "projectPath": "D:\\AdminCodeUI\\AdminUI.Date\\AdminUI.Date.csproj",
+        "packagesPath": "C:\\Users\\sanke\\.nuget\\packages\\",
+        "outputPath": "D:\\AdminCodeUI\\AdminUI.Date\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sanke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,11 +89,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
-                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
+              "D:\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj": {
+                "projectPath": "D:\\AdminCodeUI\\AdminUI.Code\\AdminUI.Code.csproj"
               },
-              "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
-                "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
+              "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+                "projectPath": "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj"
               }
             }
           }
@@ -147,21 +147,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015135\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
+    "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
+        "projectUniqueName": "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
         "projectName": "AdminUI.Domain",
-        "projectPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
-        "packagesPath": "C:\\Users\\SanKeYou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\obj\\",
+        "projectPath": "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
+        "packagesPath": "C:\\Users\\sanke\\.nuget\\packages\\",
+        "outputPath": "D:\\AdminCodeUI\\AdminUI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SanKeYou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sanke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -199,7 +199,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015135\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EwOH5lSeRH9adjyeNznd0HtCTCJct2PwoCDRRX5dXS8tpkEe9ht2RgW3t0MdU5Y9ecqEbgRd3zl8qCmLr+aQkQ==",
+  "dgSpecHash": "DMnuUOr17naGj+hQzJmrTPi70F4HNOEIDk+p1aOd0bcM2m5Q+aHtfJ9ZAslW3AM6prcvJg1XUmGa7ryfurplUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SanKeYou\\source\\repos\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
+  "projectFilePath": "D:\\AdminCodeUI\\AdminUI.Domain\\AdminUI.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

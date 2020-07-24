@@ -1,0 +1,57 @@
+﻿
+
+    <div class="site-tree">
+        <div id="test1" class="demo-tree demo-tree-box"></div>
+
+
+    </div>
+    <div class="site-content">
+
+        <table class="layui-hide" id="test" lay-filter="test"></table>
+    </div>
+
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
+    </script>
+<script>
+   
+
+    layui.use(['tree', 'table'], function () {
+        var tree = layui.tree, table = layui.table;
+
+        $.ajax({
+            url: "/api/ClientsData/GetItems",
+            type: "get",
+            dataType: 'json',
+            success: function (resut) {
+             
+                tree.render({
+                    elem: '#test1'  //绑定元素
+                    , data: resut
+                    , click: function (obj) {
+                        table.render({
+                            elem: '#test'
+                            , url: '/api/ClientsData/GetItemsDetail?id=' + obj.data.Id
+                            , cols: [[
+                                { field: 'F_ItemName', title: '名字', width: 100, fixe: 'left' },
+                                { field: 'F_ItemCode', title: '编号', width: 120, fixe: 'left' },
+                                { field: 'F_SortCode', title: '排序', width: 80, fixe: 'left' },
+                                { field: 'F_EnabledMark', title: '有效', width: 100, fixe: 'left' },
+                                { field: 'F_CreatorTime', title: '创建时间', width: 150, fixe: 'left' },
+                                { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 250, align: 'center' }
+                            ]]
+                        });
+                    }
+                });
+            }
+        });
+
+
+
+      
+
+    });
+
+</script>

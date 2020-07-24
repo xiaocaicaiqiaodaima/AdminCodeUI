@@ -15,3 +15,12 @@ C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.csproj.CoreCompileInputs.cache
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.dll
 C:\Users\SanKeYou\source\repos\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.pdb
+D:\AdminCodeUI\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.deps.json
+D:\AdminCodeUI\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.dll
+D:\AdminCodeUI\AdminUI.Code\bin\Debug\netcoreapp3.1\AdminUI.Code.pdb
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.csprojAssemblyReference.cache
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.csproj.CoreCompileInputs.cache
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.AssemblyInfoInputs.cache
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.AssemblyInfo.cs
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.dll
+D:\AdminCodeUI\AdminUI.Code\obj\Debug\netcoreapp3.1\AdminUI.Code.pdb

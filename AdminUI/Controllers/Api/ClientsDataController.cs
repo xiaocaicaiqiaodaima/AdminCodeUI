@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using AdminUI.Code.Web;
 using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
+using AdminUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -37,6 +39,58 @@ namespace AdminUI.Controllers.Api
             this.Items = Items;
             this.Module = Module;
         }
+
+       
+        [HttpGet("GetItems")]
+        public object GetItems(int page, int limit) {
+
+      
+            var list = Items.Query().Result;
+
+            List<ItemsModel> itemsModels = new List<ItemsModel>();
+            foreach (var item in list)
+            {
+                if (item.F_ParentId=="0")
+                {
+                    ItemsModel itemsModel = new ItemsModel();
+                    itemsModel.title = item.F_FullName;
+                    itemsModel.Id= item.F_Id;
+                    itemsModel.children = Clients.addchildren(list,item.F_Id);
+                    itemsModels.Add(itemsModel);
+                }
+            }
+            return itemsModels.ToJson();
+           
+        }
+
+      
+
+
+        [HttpGet("GetItemsDetail")]
+        public object GetItemsDetail(int page, int limit,string id)
+        {
+            List<Sys_ItemsDetail> _ItemsDetail = new List<Sys_ItemsDetail>();
+            var list = ItemsDetail.Query().Result;
+            foreach (var item in list)
+            {
+                Sys_ItemsDetail sys_Items = new Sys_ItemsDetail();
+                if (item.F_ItemId==id)
+                {
+                    sys_Items.F_Id = item.F_Id;
+                    sys_Items.F_ItemId = item.F_ItemId;
+                    sys_Items.F_ItemCode = item.F_ItemCode;
+                    sys_Items.F_ItemName = item.F_ItemName;
+                    sys_Items.F_SortCode = item.F_SortCode;
+                    sys_Items.F_CreatorTime = item.F_CreatorTime;
+                    sys_Items.F_EnabledMark = item.F_EnabledMark;
+                
+                    _ItemsDetail.Add(sys_Items);
+                }
+            }
+            var data = new { code = 0, msg = "", data = _ItemsDetail, count = _ItemsDetail.Count };
+            return data.ToJson();
+        }
+
         // GET: api/<controller>
         [HttpGet]
         public ActionResult GetClientsDataJson()

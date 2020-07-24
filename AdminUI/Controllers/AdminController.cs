@@ -40,5 +40,7 @@ namespace AdminUI.Controllers
         public IActionResult HistoryWarn() => View();
         public IActionResult ProcessedWarn() => View();
         public IActionResult PendingWarn() => View();
+
+        public IActionResult Items() => View();
     }
 }
