@@ -1,0 +1,133 @@
+﻿<div style="margin: 15px;" id="Uform">
+    <form class="layui-form" id="form1">
+        <div class="layui-form-item">
+            <input type="text" name="F_Id" id="F_Id" style="display:none" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">归属</label>
+                <div class="layui-input-inline">
+                    <select name="F_ItemId" id="F_ItemId" lay-filter="aihao">
+                      
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="F_ItemName" id="F_ItemName" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+             
+                    <label class="layui-form-label">排序</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="F_SortCode" id="F_SortCode" placeholder="请输入" autocomplete="off" class="layui-input">
+
+                    </div>
+              
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">编号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="F_ItemCode" id="F_ManagerId" placeholder="请输入" autocomplete="off" class="layui-input">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+
+
+         
+        </div>
+
+        <button lay-filter="edit" id="edit" lay-submit style="display: none;"></button>
+    </form>
+</div>
+
+<script src="~/lib/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="~/lib/js/jquery-3.3.1.min.js"></script>
+<script>
+    $.request = function (name) {
+        var search = location.search.slice(1);
+        var arr = search.split("&");
+        for (var i = 0; i < arr.length; i++) {
+            var ar = arr[i].split("=");
+            if (ar[0] == name) {
+                if (unescape(ar[1]) == 'undefined') {
+                    return "";
+                } else {
+                    return unescape(ar[1]);
+                }
+            }
+        }
+        return "";
+    }
+    var keyValue = $.request("keyValue");
+
+    $.each(top.clients.Items, function (index, item) {
+        $('#F_ItemId').append(new Option(item.fullname, index));
+    });
+
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+
+        form.on('submit(edit)', function (data) {
+            if (!!keyValue) {
+                $.ajax({
+                    type: "Put",
+                    url: "/api/ClientsData/ItemsDetailUpdate",
+                    data: JSON.stringify(data.field),
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    success: function (ret) {
+
+                        var index = parent.layer.getFrameIndex(window.name);
+                        if (ret == true) {
+                            layer.msg("操作成功", { icon: 1 }, function () {
+                                parent.layer.close();
+                                window.parent.location.reload();
+                            });
+
+                        }
+                        else {
+                            layer.msg("操作失败", { icon: 2, time: 3000 });
+                            parent.layer.close(index); //再执行关闭
+                        }
+                    }
+                });
+            }
+            else {
+                $.ajax({
+                    type: "post",
+                    url: "/api/ClientsData/ItemsDetailAdd",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    data: JSON.stringify(data.field),
+                    success: function (ret) {
+                        var index = parent.layer.getFrameIndex(window.name);
+                        if (ret == true) {
+                            layer.msg("操作成功", { icon: 1 }, function () {
+                                parent.layer.close();
+                                window.parent.location.reload();
+                            });
+                        }
+                        else {
+                            layer.msg("操作失败", { icon: 2 });
+                            parent.layer.close(index); //再执行关闭
+                        }
+                    }
+                });
+            }
+
+            return false;
+        });
+
+    });
+</script>

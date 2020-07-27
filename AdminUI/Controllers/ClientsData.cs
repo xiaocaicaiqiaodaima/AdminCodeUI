@@ -43,6 +43,27 @@ namespace AdminUI.Controllers
             return dictionaryItem;
         }
 
+        public object GetItemsList(IRepositoryBase<Sys_Items> Items)
+        {
+          
+            var Itemsdata = Items.Query().Result;
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+
+                foreach ( Sys_Items items in Itemsdata)
+                {
+                    var fieldItem = new
+                    {
+                        encode = items.F_EnCode,
+                        fullname = items.F_FullName,
+                        id = items.F_Id,
+                        layers = items.F_Layers
+                    };
+                dictionary.Add(items.F_Id, fieldItem);
+            }
+              
+            return dictionary;
+        }
+
 
         public object GetOrganizeList(IRepositoryBase<Sys_Organize> Organize)
         {

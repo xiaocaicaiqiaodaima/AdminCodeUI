@@ -471,3 +471,4 @@ D:\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.dll
 D:\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.pdb
 D:\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\AdminUI.genruntimeconfig.cache
 D:\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\items.cshtml.g.cs
+D:\AdminCodeUI\AdminUI\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ItemsForm.cshtml.g.cs

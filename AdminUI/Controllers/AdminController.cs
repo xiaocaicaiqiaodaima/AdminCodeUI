@@ -42,5 +42,6 @@ namespace AdminUI.Controllers
         public IActionResult PendingWarn() => View();
 
         public IActionResult Items() => View();
+        public IActionResult ItemsForm() => View();
     }
 }

@@ -172,7 +172,7 @@ namespace AdminUI.Controllers.Api
 
 
         [Authorize]
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public object Delete(string id)
         {
 

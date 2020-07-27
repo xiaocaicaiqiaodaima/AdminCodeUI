@@ -28,6 +28,7 @@ $.clientsInit = function () {
                 dataJson.dataItems = data.dataItems;
                 dataJson.organize = data.organize;
                 dataJson.role = data.role;
+                dataJson.Items = data.Items;
                 dataJson.duty = data.duty;
                 dataJson.module = data.module;
 

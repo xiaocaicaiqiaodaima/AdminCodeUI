@@ -114,8 +114,8 @@
                 layer.confirm('真的删除行么', function (index) {
                     $.ajax({
                         type: "Delete",
-                        url: "/api/User",
-                        data: { "id": data.F_Id },
+                        url: "/api/User/" + data.F_Id,
+                     
                         daaType: "json",
                         success: function (ret) {
                             debugger

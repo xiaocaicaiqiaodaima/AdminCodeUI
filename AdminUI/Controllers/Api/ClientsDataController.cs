@@ -63,7 +63,45 @@ namespace AdminUI.Controllers.Api
            
         }
 
-      
+
+        [HttpPut("ItemsDetailUpdate")]
+        public object ItemsDetailUpdate(Itemsdetail itemsModel) {
+            var list = new Sys_ItemsDetail {
+                F_ItemName = itemsModel.F_ItemName,
+                F_CreatorTime = DateTime.Now,
+                F_Id = itemsModel.F_Id,
+                F_ItemId = itemsModel.F_ItemId,
+                F_ItemCode = itemsModel.F_ItemCode,
+                F_SortCode = itemsModel.F_SortCode,
+                F_EnabledMark = itemsModel.F_EnabledMark == "on" ? true : false
+            };
+            var ret = ItemsDetail.Add(list).Result;
+            return ret;
+        }
+
+        [HttpPost("ItemsDetailAdd")]
+        public object ItemsDetailAdd([FromForm]Itemsdetail itemsModel)
+        {
+            var list = new Sys_ItemsDetail
+            {
+                F_ItemName = itemsModel.F_ItemName,
+                F_CreatorTime = DateTime.Now,
+                F_Id = Common.GuId(),
+                F_ItemId = itemsModel.F_ItemId,
+                F_ItemCode = itemsModel.F_ItemCode,
+                F_SortCode = itemsModel.F_SortCode,
+                F_EnabledMark = itemsModel.F_EnabledMark == "on" ? true : false
+            };
+            var ret = ItemsDetail.Add(list).Result;
+            return ret;
+        }
+
+
+        [HttpDelete("ItemsDetailDelete/{id}")]
+        public object ItemsDetailDelete(string id) {
+            var ret = ItemsDetail.DeleteById(id).Result;
+            return ret.ToJson();
+        }
 
 
         [HttpGet("GetItemsDetail")]
@@ -98,6 +136,7 @@ namespace AdminUI.Controllers.Api
             var data = new
             {
                 dataItems = Clients.GetDataItemList(ItemsDetail,Items),
+                Items= Clients.GetItemsList(Items),
                 organize = Clients.GetOrganizeList(Organize),
                 role = Clients.GetRoleList(Role),
                 duty = Clients.GetDutyList(Role),
