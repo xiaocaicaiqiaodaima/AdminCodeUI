@@ -16,16 +16,10 @@
                 </div>
             </div>
         </div>
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">单位</label>
-                <div class="layui-input-block">
-                    <select name="F_OrganizeId" id="F_OrganizeId" lay-filter="aihao">
-                        <option value="">==请选择==</option>
-                    </select>
-                </div>
 
-            </div>
+
+        <div class="layui-form-item">
+
             <div class="layui-inline">
                 <label class="layui-form-label">部门</label>
                 <div class="layui-input-block">
@@ -34,22 +28,11 @@
                     </select>
                 </div>
             </div>
-        </div>
 
-        <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">角色</label>
                 <div class="layui-input-block">
                     <select name="F_RoleId" id="F_RoleId" lay-filter="aihao">
-                        <option value="">==请选择==</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">岗位</label>
-                <div class="layui-input-block">
-                    <select name="F_DutyId" id="F_DutyId" lay-filter="aihao">
                         <option value="">==请选择==</option>
                     </select>
                 </div>
@@ -75,10 +58,20 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">性别</label>
-            <div class="layui-input-block">
-                <input type="radio" name="F_Gender" value="男" title="男">
-                <input type="radio" name="F_Gender" value="女" title="女" checked>
+            <div class="layui-inline">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-block">
+                    <input type="text" name="F_Email" id="F_Email" placeholder="请输入" autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">性别</label>
+                <div class="layui-input-block">
+                    <select name="F_Gender" id="F_Gender" lay-filter="aihao">
+                      
+                    </select>
+                </div>
 
             </div>
         </div>
@@ -126,15 +119,10 @@
     }
 
     $.each(top.clients.organize, function (index, item) {
-        if (item.layers==1) {
-            $('#F_OrganizeId').append(new Option(item.fullname, index));
-        }
-        else {
             $('#F_DepartmentId').append(new Option(item.fullname, index));
-        }
     });
-    $.each(top.clients.duty, function (index, item) {
-        $('#F_DutyId').append(new Option(item.fullname, index));
+    $.each(top.clients.dataItems[104], function (index, item) {
+        $('#F_Gender').append(new Option(item, index));
     });
     $.each(top.clients.role, function (index, item) {
         $('#F_RoleId').append(new Option(item.fullname, index));

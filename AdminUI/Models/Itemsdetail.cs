@@ -11,10 +11,9 @@ namespace AdminUI.Models
         public string F_ItemId { get; set; }
         public string F_ItemCode { get; set; }
         public string F_ItemName { get; set; }
-        public DateTime F_CreatorTime { get; set; }
-        public int F_SortCode { get; set; }
+        public string F_CreatorTime { get; set; }
+        public string F_SortCode { get; set; }
 
-        public string F_EnabledMark { get; set; }
 
     }
 }

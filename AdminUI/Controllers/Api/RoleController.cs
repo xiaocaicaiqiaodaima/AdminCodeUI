@@ -6,6 +6,7 @@ using AdminUI.Code.Web;
 using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
 using AdminUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AdminUI.Controllers.Api
 {
     [Route("api/[controller]")]
+    [Authorize(Roles = ("管理员"))]
     [ApiController]
     public class RoleController : ControllerBase
     {
@@ -25,6 +27,7 @@ namespace AdminUI.Controllers.Api
         Paginated paginated = new Paginated();
         // GET: api/<RoleController>
         [HttpGet]
+      
         public object Get(int page, int limit)
         {
             paginated.page = page;
@@ -36,6 +39,7 @@ namespace AdminUI.Controllers.Api
 
         // GET api/<RoleController>/5
         [HttpGet("{id}")]
+       
         public string Get(string id)
         {
             var ret = Repository.QueryById(id).Result;
@@ -43,6 +47,7 @@ namespace AdminUI.Controllers.Api
         }
 
         // POST api/<RoleController>
+      
         [HttpPost]
         public object Post([FromBody] RoleModel role)
         {
@@ -65,7 +70,9 @@ namespace AdminUI.Controllers.Api
         }
 
         // PUT api/<RoleController>
+       
         [HttpPut]
+
         public object Put([FromBody] RoleModel role)
         {
             var updaterole = new Sys_Role
@@ -88,6 +95,7 @@ namespace AdminUI.Controllers.Api
         }
 
         // DELETE api/<RoleController>/5
+     
         [HttpDelete]
         public object Delete([FromForm] string id)
         {

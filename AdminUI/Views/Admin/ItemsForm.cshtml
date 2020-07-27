@@ -33,7 +33,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">编号</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="F_ItemCode" id="F_ManagerId" placeholder="请输入" autocomplete="off" class="layui-input">
+                    <input type="text" name="F_ItemCode" id="F_ItemCode" placeholder="请输入" autocomplete="off" class="layui-input">
 
                 </div>
             </div>
@@ -109,6 +109,7 @@
                     url: "/api/ClientsData/ItemsDetailAdd",
                     contentType: "application/json;charset=UTF-8",
                     dataType: "json",
+                    async: false,
                     data: JSON.stringify(data.field),
                     success: function (ret) {
                         var index = parent.layer.getFrameIndex(window.name);

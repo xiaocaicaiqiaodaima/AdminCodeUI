@@ -166,7 +166,7 @@
         //鼠标点击marker可弹出自定义的信息窗体
 
         marker.on('click', markerClick);
-
+        marker.on('mouseover', markerClick);
         marker.emit('click', {
             target: marker
         });
@@ -186,7 +186,7 @@
 
     
 
-    setInterval(timeOneOverlay, 1000)
+    //setInterval(timeOneOverlay, 1000)
     function timeOneOverlay() {
 
         var targetId = Math.floor(Math.random() * 10 + 1);
@@ -197,22 +197,6 @@
         targetMarker = markers[nul];
         infoWindow.setContent(targetMarker.content)
         infoWindow.open(map, targetMarker.getPosition());
-
-
-       
-        //for (var i = 0; i < markers.length; i++) {
-        //    // 获取存在每个 extData 中的 id
-        //    var id = markers[i].getExtData().id;
-
-
-        //    if (id === targetId) {
-        //        targetMarker = markers[i];
-        //        infoWindow.setContent(targetMarker.content)
-
-        //        infoWindow.open(map, targetMarker.getPosition());
-        //        break;
-        //    }
-        //}
     }
 
     // 获取当前 id 的覆盖物
@@ -223,8 +207,6 @@
         for (var i = 0; i < markers.length; i++) {
             // 获取存在每个 extData 中的 id
             var id = markers[i].getExtData().id;
-          
-           
             if (id === targetId) {
                 targetMarker = markers[i];
                 infoWindow.setContent(targetMarker.content)

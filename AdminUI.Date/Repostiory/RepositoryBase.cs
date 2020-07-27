@@ -22,8 +22,6 @@ namespace AdminUI.Date.Repostiory
         {
             _context = context;
         }
-
-
         public async Task<TEntity> QueryById(object objId)
         {
             return await _context.Set<TEntity>().FindAsync(objId);

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using System.Linq;
 
 namespace AdminUI.Controllers.Api
 {
@@ -34,7 +35,9 @@ namespace AdminUI.Controllers.Api
         {
             paginated.page = page;
             paginated.limit = limit;
-            var lists = Repository.Query(paginated).Result;
+            var lists = (Repository.Query(paginated).Result).Where(t=>t.F_Account!="admin").Select(t=>t).ToList();
+
+            
             var ret = new { code = 0, msg = "", data = lists, count = paginated.records };
             return ret.ToJson();
         }
@@ -49,7 +52,7 @@ namespace AdminUI.Controllers.Api
         }
 
         // POST api/<controller>
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpPost]
         public object Post(UserModel userModel)
         {
@@ -58,7 +61,7 @@ namespace AdminUI.Controllers.Api
                 F_Id = Common.GuId(),
                 F_Account = userModel.F_Account,
                 F_RealName = userModel.F_RealName,
-                F_UserPassword = userModel.F_UserPassword,
+                F_UserPassword = MD5Comm.Get32MD5One(DESEncrypt.Encrypt(userModel.F_UserPassword, "AdminUI")),
                 F_MobilePhone = userModel.F_MobilePhone,
                 F_Gender = userModel.F_Gender== "男" ? true : false,
                 F_IsAdministrator = userModel.F_IsAdministrator == "on" ? true : false,
@@ -81,18 +84,17 @@ namespace AdminUI.Controllers.Api
         public async Task<object> Login(LoginModel login)
         {
             var pss = MD5Comm.Get32MD5One(DESEncrypt.Encrypt(login.password,"AdminUI"));
-           
              var list = Repository.Query(t => t.F_Account == login.userName && t.F_UserPassword== pss).Result;
-            var ret = list.Count > 0 ? true : false;
+             var ret = list.Count > 0 ? true : false;
 
             if (ret)
             {
                 //创建用户身份标识
                 var claims = new List<Claim>()
                     {
-
                         new Claim(ClaimTypes.Name, login.userName),
                         new Claim(ClaimTypes.Role, list[0].F_IsAdministrator==true?"管理员":"普通用户"),
+                         new Claim(ClaimTypes.Rsa, list[0].F_SecurityLevel.ToString())
                     };
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -118,7 +120,7 @@ namespace AdminUI.Controllers.Api
         }
 
 
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpPut]
         public object Put(UserModel userModel)
         {
@@ -145,7 +147,7 @@ namespace AdminUI.Controllers.Api
         }
 
 
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpPut("updata")]
         public object updata([FromBody]UserModel userModel)
         {
@@ -155,11 +157,13 @@ namespace AdminUI.Controllers.Api
                 F_Account = userModel.F_Account,
                 F_RealName = userModel.F_RealName,
                 F_UserPassword = userModel.F_UserPassword,
+                F_Email=userModel.F_Email,
                 F_MobilePhone = userModel.F_MobilePhone,
-                F_Gender = userModel.F_Gender == "女"?true : false,
+                F_Gender = userModel.F_Gender == "0"?true : false,
                 F_IsAdministrator = userModel.F_IsAdministrator == "on" ? true : false,
                 F_EnabledMark = userModel.F_EnabledMark == "on" ? true : false,
                 F_CreatorTime = DateTime.Now,
+              
                 F_OrganizeId = userModel.F_OrganizeId,
                 F_DepartmentId = userModel.F_DepartmentId,
                 F_RoleId = userModel.F_RoleId,
@@ -171,7 +175,7 @@ namespace AdminUI.Controllers.Api
         }
 
 
-        [Authorize]
+        [Authorize(Roles=("管理员"))]
         [HttpDelete("{id}")]
         public object Delete(string id)
         {

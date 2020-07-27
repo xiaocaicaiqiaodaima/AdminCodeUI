@@ -57,10 +57,10 @@ layui.define(['element', 'common'], function (exports) {
                         dataType: 'json',
                         success: function (result, status, xhr) {
                             //添加缓存
-                            layui.data(cacheName, {
-                                key: 'navbar',
-                                value: result
-                            });
+                            //layui.data(cacheName, {
+                            //    key: 'navbar',
+                            //    value: result
+                            //});
                             var html = getHtml(result);
                             $container.html(html);
                             element.init();

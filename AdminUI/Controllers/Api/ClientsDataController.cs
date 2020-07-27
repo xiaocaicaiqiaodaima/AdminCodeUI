@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using AdminUI.Code.Web;
 using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
 using AdminUI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -72,15 +67,15 @@ namespace AdminUI.Controllers.Api
                 F_Id = itemsModel.F_Id,
                 F_ItemId = itemsModel.F_ItemId,
                 F_ItemCode = itemsModel.F_ItemCode,
-                F_SortCode = itemsModel.F_SortCode,
-                F_EnabledMark = itemsModel.F_EnabledMark == "on" ? true : false
+                F_SortCode = int.Parse(itemsModel.F_SortCode),
+                F_EnabledMark = true
             };
-            var ret = ItemsDetail.Add(list).Result;
+            var ret = ItemsDetail.Update(list).Result;
             return ret;
         }
 
         [HttpPost("ItemsDetailAdd")]
-        public object ItemsDetailAdd([FromForm]Itemsdetail itemsModel)
+        public object ItemsDetailAdd([FromBody]Itemsdetail itemsModel)
         {
             var list = new Sys_ItemsDetail
             {
@@ -89,8 +84,8 @@ namespace AdminUI.Controllers.Api
                 F_Id = Common.GuId(),
                 F_ItemId = itemsModel.F_ItemId,
                 F_ItemCode = itemsModel.F_ItemCode,
-                F_SortCode = itemsModel.F_SortCode,
-                F_EnabledMark = itemsModel.F_EnabledMark == "on" ? true : false
+                F_SortCode = int.Parse(itemsModel.F_SortCode),
+                F_EnabledMark = true
             };
             var ret = ItemsDetail.Add(list).Result;
             return ret;

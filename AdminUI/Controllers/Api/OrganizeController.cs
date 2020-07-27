@@ -6,6 +6,7 @@ using AdminUI.Code.Web;
 using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
 using AdminUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AdminUI.Controllers.Api
 {
     [Route("api/[controller]")]
+    [Authorize(Roles = ("管理员"))]
     [ApiController]
     public class OrganizeController : ControllerBase
     {
@@ -31,7 +33,7 @@ namespace AdminUI.Controllers.Api
             paginated.limit = limit;
             var list = Repository.Query(paginated).Result;
             var ret = new { code = 0, msg = "", data = list, count = paginated.records };
-             return ret.ToJson();
+            return ret.ToJson();
         }
 
         // GET api/<OrganizeController>/5
@@ -44,16 +46,18 @@ namespace AdminUI.Controllers.Api
 
         // POST api/<OrganizeController>
         [HttpPost]
-        public object Post([FromBody] OrganizeModel  organize)
+        public object Post([FromBody] OrganizeModel organize)
         {
-            var addorganize = new Sys_Organize { 
-            F_Id=Common.GuId(),
-            F_ParentId=organize.F_ParentId,
-            F_Layers=organize.F_Layers,
-            F_FullName=organize.F_FullName,
-            F_EnCode=organize.F_EnCode,
-            F_ManagerId=organize.F_ManagerId,
-            F_CreatorTime=DateTime.Now
+            var addorganize = new Sys_Organize
+            {
+                F_Id = Common.GuId(),
+                F_ParentId = organize.F_ParentId,
+                F_Layers = 2,
+                F_FullName = organize.F_FullName,
+                F_EnCode = organize.F_CategoryId,
+              
+                F_ManagerId = organize.F_ManagerId,
+                F_CreatorTime = DateTime.Now
             };
             var ret = Repository.Add(addorganize).Result;
             return ret.ToJson();
@@ -69,7 +73,7 @@ namespace AdminUI.Controllers.Api
                 F_ParentId = organize.F_ParentId,
                 F_Layers = organize.F_Layers,
                 F_FullName = organize.F_FullName,
-                F_EnCode = organize.F_EnCode,
+                F_EnCode = organize.F_CategoryId,
                 F_ManagerId = organize.F_ManagerId,
             };
             var ret = Repository.Update(updateorganize).Result;

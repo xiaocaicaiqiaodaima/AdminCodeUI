@@ -15,21 +15,33 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 namespace AdminUI.Controllers.Api
 {
     [ApiController]
+   
     [Route("api/[controller]")]
     public class ModuleController : Controller
     {
         public IRepositoryBase<Sys_Module> Repository { get; }
+        public IRepositoryBase<Sys_User> _User { get; }
 
-        public ModuleController(IRepositoryBase<Sys_Module> repository)
+        public ModuleController(IRepositoryBase<Sys_Module> repository,IRepositoryBase<Sys_User> user)
         {
             Repository = repository;
+            _User = user;
         }
 
         // GET: api/<controller>
         [HttpGet]
         public object Get()
         {
-            var list = Repository.Query().Result;
+            var rets= _User.Query().Result.Where(t => t.F_Account == User.Identity.Name).Select(t => t.F_IsAdministrator).ToList();
+            List<Sys_Module> list;
+            if (rets[0]==false)
+            {
+                list = Repository.Query().Result.Where(t => t.F_IsPublic == false).ToList();
+            }
+            else
+            {
+                list = Repository.Query().Result;
+            }
             var ret = ToMenuJson(list, "0");
             return Content(ret);
         }
@@ -63,7 +75,7 @@ namespace AdminUI.Controllers.Api
 
 
         // PUT api/<controller>/
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpPut]
         public object Put(ModuleModel moduleModel)
         {
@@ -89,7 +101,7 @@ namespace AdminUI.Controllers.Api
         }
 
 
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpPost("Add")]
         public object Add(ModuleModel moduleModel)
         {
@@ -115,7 +127,7 @@ namespace AdminUI.Controllers.Api
             return ret.ToJson();
         }
         // DELETE api/<controller>/5
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         [HttpDelete("{id}")]
         public object Delete(string id)
         {

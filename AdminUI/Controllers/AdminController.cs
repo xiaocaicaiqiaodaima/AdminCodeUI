@@ -15,22 +15,22 @@ namespace AdminUI.Controllers
         public IActionResult GisMap() => View();
         [Authorize]
         public IActionResult Users() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult UserForm() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult Organize() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult OrganizeForm() => View();
 
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult Role() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult RoleForm() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult Module() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult ModuleForm() => View();
-        [Authorize]
+        [Authorize(Roles = ("管理员"))]
         public IActionResult Log() => View();
 
         public IActionResult HistoryInformation() => View();
@@ -40,7 +40,7 @@ namespace AdminUI.Controllers
         public IActionResult HistoryWarn() => View();
         public IActionResult ProcessedWarn() => View();
         public IActionResult PendingWarn() => View();
-
+        [Authorize(Roles = ("管理员"))]
         public IActionResult Items() => View();
         public IActionResult ItemsForm() => View();
     }

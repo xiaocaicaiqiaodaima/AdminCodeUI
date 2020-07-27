@@ -86,9 +86,8 @@
                 layer.confirm('真的删除行么', function (index) {
                     $.ajax({
                         type: "Delete",
-                        url: "/api/Organize",
-                        data: { "id": data.F_Id },
-
+                        url: "/api/Organize/" + data.F_Id,
+                      
                         daaType: "json",
                         success: function (ret) {
                             debugger
@@ -129,7 +128,7 @@
                         body.find("#F_CategoryId").val(data.F_CategoryId);
                         body.find("#F_FullName").val(data.F_FullName);
                         body.find("#F_ManagerId").val(data.F_ManagerId);
-                        body.find("#F_EnCode").val(data.F_EnCode);
+                        body.find("#F_CategoryId").val(data.F_EnCode);
                         body.find("#F_SortCode").val(data.F_SortCode);
                         body.find("#F_CreatorTime").val(data.F_CreatorTime);
                         body.find("#F_AllowEdit").attr("checked", data.F_AllowEdit == true ? true : false);
