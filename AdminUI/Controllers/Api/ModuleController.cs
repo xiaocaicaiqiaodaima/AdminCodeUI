@@ -34,16 +34,26 @@ namespace AdminUI.Controllers.Api
         {
             var rets= _User.Query().Result.Where(t => t.F_Account == User.Identity.Name).Select(t => t.F_IsAdministrator).ToList();
             List<Sys_Module> list;
-            if (rets[0]==false)
+            try
             {
-                list = Repository.Query().Result.Where(t => t.F_IsPublic == false).ToList();
+                if (rets[0] == false)
+                {
+                    list = Repository.Query().Result.Where(t => t.F_IsPublic == false).ToList();
+                }
+                else
+                {
+                    list = Repository.Query().Result;
+                }
+                var ret = ToMenuJson(list, "0");
+                return Content(ret);
             }
-            else
+            catch (Exception)
             {
-                list = Repository.Query().Result;
+
+                return Content("没有登录用户");
             }
-            var ret = ToMenuJson(list, "0");
-            return Content(ret);
+           
+          
         }
 
 

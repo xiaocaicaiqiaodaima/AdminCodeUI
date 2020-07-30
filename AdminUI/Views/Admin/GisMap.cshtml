@@ -45,7 +45,7 @@
 <div id="panel" class="amap-pl-pc">
 </div>
 
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=8ade693bcd1eb762a612032a3040d86a"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=8ade693bcd1eb762a612032a3040d86a"></script>
 <script type="text/javascript">
     var list = [{
         "lnglats": [116.30748321030424, 40.09450868761932],
@@ -135,11 +135,14 @@
     var map = new AMap.Map("container", {
         resizeEnable: true
         , content: list[1].lnglats,
-        zoom:15
+        viewMode: '3D',
+        pitch: 65,
+        rotation: -35,
+        zoom: 20
     });
     var markers = [];
     var infoWindow = new AMap.InfoWindow({
-        offset: new AMap.Pixel(0, -30)
+        offset: new AMap.Pixel(0,0)
     });
     for (var i = 0; i < list.length; i++) {
         var lnglat = list[i].lnglats;

@@ -8,7 +8,7 @@ namespace AdminUI.Date.Models
     {
         public long ID { get; set; }
         public string Ip_Address { get; set; }
-        public char Address_Index { get; set; }
+        public string Mac { get; set; }
         public string Monitor_Name { get; set; }
         public string State { get; set; }
         public DateTime Monitor_Time { get; set; }

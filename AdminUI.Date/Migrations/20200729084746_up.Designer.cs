@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminUI.Date.Migrations
 {
     [DbContext(typeof(NFineDBContext))]
-    [Migration("20200720033409_mysql")]
-    partial class mysql
+    [Migration("20200729084746_up")]
+    partial class up
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1632,6 +1632,35 @@ namespace AdminUI.Date.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("mstb_monitorstate");
+                });
+
+            modelBuilder.Entity("AdminUI.Date.Models.mstbstate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Channel1")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Channel2")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Humidity")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Ip_Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Monitor_Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Temperature")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("mstbstate");
                 });
 #pragma warning restore 612, 618
         }

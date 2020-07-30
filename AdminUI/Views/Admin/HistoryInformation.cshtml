@@ -22,17 +22,28 @@
         var table = layui.table;
         table.render({
             elem: '#test'
-            , url: '../../lib/datas/Information.json'
-            , title: '历史数据表'
+            , url: '/api/Mstb/Getmonitorcurrent'
+            , title: '数据表'
             , cols: [[
-                { field: 'DeviceID', title: '站点ID', width: 80, fixed: 'left' }
-                , { field: 'StationName', title: '名称', width: 120 }
-                , { field: 'Ip_Address', title: 'IP', width: 120 }
-                , { field: 'PPM', title: '气体浓度', width: 150 }
-                , { field: 'LEL', title: '%LEL', width: 150 }
-                , { field: 'Temperature', title: '温度', width: 80 }
-                , { field: 'Humidity', title: '湿度', width: 80 }
-                , { field: 'Time', title: '时间', width: 100 }
+                { field: 'Mac', title: '站点ID', width: 100, fixed: 'left', align: 'center' }
+
+                , { field: 'Ip_Address', title: 'IP', width: 160, align: 'center' }
+                , {
+                    field: 'Monitor_Value', title: '氢气', align: 'center', width: 150, templet: function (item) {
+                        return item.Monitor_Value[0] + ' %LEL';
+                    }
+                }
+                , {
+                    field: 'Monitor_Value', title: '温度', align: 'center', width: 100, templet: function (item) {
+                        return item.Monitor_Value[1] + ' C°';
+                    }
+                }
+                , {
+                    field: 'Monitor_Value', title: '湿度', align: 'center', width: 120, templet: function (item) {
+                        return item.Monitor_Value[2] + ' %RH';
+                    }
+                }
+                , { field: 'Monitor_Time', title: '时间', align: 'center', width: 150 }
 
             ]]
             , page: true

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
@@ -97,7 +98,10 @@ namespace AdminUI.Date.Repostiory
             var ret = _context.SaveChanges() > 0;
             return ret;
         }
-
+        public async Task<List<TEntity>> SQLQ(string sql) {
+            return await _context.Set<TEntity>().FromSqlRaw(sql).ToListAsync();
+           
+        }
         public async Task<List<TEntity>> Query()
         {
             return await _context.Set<TEntity>().ToListAsync();
@@ -105,17 +109,15 @@ namespace AdminUI.Date.Repostiory
 
         public async Task<List<TEntity>> Query(object id)
         {
-            var list = await _context.Set<List<TEntity>>().FindAsync(id);
-
-            return list;
+            return await _context.Set<List<TEntity>>().FindAsync(id);
         }
         //分页查询
         public async Task<List<TEntity>> Query(Paginated paginated)
         {
             var count = _context.Set<TEntity>().Count();
             paginated.records = count;
-            var cm = await (PaginatedList<TEntity>.CreateAsync(_context.Set<TEntity>().AsNoTracking(), paginated.page, paginated.limit));
-            return cm;
+            return await (PaginatedList<TEntity>.CreateAsync(_context.Set<TEntity>().AsNoTracking(), paginated.page, paginated.limit));
+           
         }
        //分页排序查询
         public async Task<List<TEntity>> Query(string strWhere, Paginated paginated)

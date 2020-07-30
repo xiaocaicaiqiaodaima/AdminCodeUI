@@ -12,6 +12,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Linq;
+using System.Text;
 
 namespace AdminUI.Controllers.Api
 {
@@ -27,6 +28,7 @@ namespace AdminUI.Controllers.Api
         }
 
         public IRepositoryBase<Sys_User> Repository { get; }
+
 
 
         Paginated paginated = new Paginated();

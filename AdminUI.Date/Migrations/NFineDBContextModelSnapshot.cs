@@ -1631,6 +1631,35 @@ namespace AdminUI.Date.Migrations
 
                     b.ToTable("mstb_monitorstate");
                 });
+
+            modelBuilder.Entity("AdminUI.Date.Models.mstbstate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Channel1")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Channel2")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Humidity")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Ip_Address")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Monitor_Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Temperature")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("mstbstate");
+                });
 #pragma warning restore 612, 618
         }
     }

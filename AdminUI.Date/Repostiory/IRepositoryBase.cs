@@ -21,7 +21,8 @@ namespace AdminUI.Date.Repostiory
         Task<bool> Update(TEntity entity, string strWhere);
         Task<bool> Update(TEntity entity, List<string> lstColumns = null, List<string> lstIgnoreColumns = null, string strWhere = "");
         Task<List<TEntity>> Query();
-     
+        Task<List<TEntity>> SQLQ(string sql);
+
         Task<List<TEntity>> Query(object id);
         Task<List<TEntity>> Query(Paginated paginated);
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace AdminUI.Date.Models
 {
@@ -33,7 +34,7 @@ namespace AdminUI.Date.Models
         public virtual DbSet<mstb_monitorhistory> mstb_monitorhistory { get; set; }
         public virtual DbSet<mstb_monitorcurrent> mstb_monitorcurrent { get; set; }
         public virtual DbSet<mstb_monitorstate> mstb_monitorstate { get; set; }
-
+       
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
