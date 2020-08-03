@@ -13,13 +13,6 @@ namespace AdminUI.Controllers
 {
     public class LoginController : Controller
     {
-        public LoginController(IRepositoryBase<Sys_Log> logs)
-        {
-            Logs = logs;
-        }
-
-        public IRepositoryBase<Sys_Log> Logs { get; }
-
         public IActionResult Index()
         {
             return View();
