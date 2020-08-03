@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/layui/css/layui.css" media="all" />
     <script type="text/javascript" src="~/lib/layui/layui.js"></script>
     <script type="text/javascript" src="~/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <link rel="stylesheet" href="~/lib/css/login.css" />
 </head>
 
@@ -32,6 +33,7 @@
                         <i class="layui-icon">&#xe642;</i>
                     </label>
                     <input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+
                 </div>
                 <div class="layui-form-item">
                   
@@ -49,18 +51,23 @@
     </div>
 
     <script>
+
+
+        
 			layui.use(['layer', 'form'], function() {
 				var layer = layui.layer,
 
-					form = layui.form;
+                    form = layui.form;
 
+              
                 form.on('submit(login)', function (data) {
+                   
                     $.ajax({
                         type: 'post',
-                        url: '/api/User/Login',
+                        url: '/api/User/Login?cip=' + returnCitySN["cip"] + "&cname=" + returnCitySN["cname"],
                         contentType: "application/json;charset=UTF-8",
                         dataType: 'json',
-                        data: JSON.stringify(data.field),
+                        data: JSON.stringify(data.field) ,
                         success: function (ret) {
 
                             if (ret == true) {

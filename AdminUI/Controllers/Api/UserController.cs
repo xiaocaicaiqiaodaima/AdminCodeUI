@@ -21,10 +21,10 @@ namespace AdminUI.Controllers.Api
     public class UserController : Controller
     {
 
-        public UserController(IRepositoryBase<Sys_User> repository)
+        public UserController(IRepositoryBase<Sys_User> repository, IRepositoryBase<Sys_Log> userlog)
         {
             Repository = repository;
-
+            Userlog = userlog;
         }
 
         public IRepositoryBase<Sys_User> Repository { get; }
@@ -32,14 +32,16 @@ namespace AdminUI.Controllers.Api
 
 
         Paginated paginated = new Paginated();
+        private readonly IRepositoryBase<Sys_Log> Userlog;
+
         [HttpGet("Userlist")]
         public object Userlist(int page, int limit)
         {
             paginated.page = page;
             paginated.limit = limit;
-            var lists = (Repository.Query(paginated).Result).Where(t=>t.F_Account!="admin").Select(t=>t).ToList();
+            var lists = (Repository.Query(paginated).Result).Where(t => t.F_Account != "admin").Select(t => t).ToList();
 
-            
+
             var ret = new { code = 0, msg = "", data = lists, count = paginated.records };
             return ret.ToJson();
         }
@@ -65,7 +67,7 @@ namespace AdminUI.Controllers.Api
                 F_RealName = userModel.F_RealName,
                 F_UserPassword = MD5Comm.Get32MD5One(DESEncrypt.Encrypt(userModel.F_UserPassword, "AdminUI")),
                 F_MobilePhone = userModel.F_MobilePhone,
-                F_Gender = userModel.F_Gender== "男" ? true : false,
+                F_Gender = userModel.F_Gender == "男" ? true : false,
                 F_IsAdministrator = userModel.F_IsAdministrator == "on" ? true : false,
                 F_EnabledMark = userModel.F_EnabledMark == "on" ? true : false,
                 F_CreatorTime = DateTime.Now,
@@ -83,12 +85,31 @@ namespace AdminUI.Controllers.Api
 
 
         [HttpPost("Login")]
-        public async Task<object> Login(LoginModel login)
+        public async Task<object> Login(LoginModel login,string cip,string cname)
         {
-            var pss = MD5Comm.Get32MD5One(DESEncrypt.Encrypt(login.password,"AdminUI"));
-             var list = Repository.Query(t => t.F_Account == login.userName && t.F_UserPassword== pss).Result;
-             var ret = list.Count > 0 ? true : false;
+            var pss = MD5Comm.Get32MD5One(DESEncrypt.Encrypt(login.password, "AdminUI"));
+            var list = Repository.Query(t => t.F_Account == login.userName).Result;
+            var retpass = Repository.Query(t => t.F_UserPassword.Equals(pss)).Result.Count>0?true:false;
+            var retname = list.Count > 0 ? true : false;
 
+            var ret = retname == true && retpass == true ? true : false;
+            var loglist = new Sys_Log
+            {
+                F_Account =list[0].F_Account,
+                F_NickName = list[0].F_RealName,
+                F_Type = "Login",
+                F_IPAddress = cip,
+                F_IPAddressName = cname,
+                F_ModuleName = "系统登录",
+                F_Result = ret,
+                F_Description = ret == true? "验证成功!":"账号或密码错误!",
+                F_CreatorTime = DateTime.Now,
+                F_Id = Common.GuId(),
+                F_Date = DateTime.Now
+            };
+            var log = Userlog.Add(loglist);
+            
+             
             if (ret)
             {
                 //创建用户身份标识
@@ -133,11 +154,11 @@ namespace AdminUI.Controllers.Api
                 F_RealName = userModel.F_RealName,
                 F_UserPassword = userModel.F_UserPassword,
                 F_MobilePhone = userModel.F_MobilePhone,
-                F_Gender = userModel.F_Gender=="男"?true:false,
+                F_Gender = userModel.F_Gender == "男" ? true : false,
                 F_IsAdministrator = userModel.F_IsAdministrator == "on" ? true : false,
                 F_EnabledMark = userModel.F_EnabledMark == "on" ? true : false,
                 F_CreatorTime = DateTime.Now,
-            
+
                 F_OrganizeId = userModel.F_OrganizeId,
                 F_DepartmentId = userModel.F_DepartmentId,
                 F_RoleId = userModel.F_RoleId,
@@ -159,13 +180,13 @@ namespace AdminUI.Controllers.Api
                 F_Account = userModel.F_Account,
                 F_RealName = userModel.F_RealName,
                 F_UserPassword = userModel.F_UserPassword,
-                F_Email=userModel.F_Email,
+                F_Email = userModel.F_Email,
                 F_MobilePhone = userModel.F_MobilePhone,
-                F_Gender = userModel.F_Gender == "0"?true : false,
+                F_Gender = userModel.F_Gender == "0" ? true : false,
                 F_IsAdministrator = userModel.F_IsAdministrator == "on" ? true : false,
                 F_EnabledMark = userModel.F_EnabledMark == "on" ? true : false,
                 F_CreatorTime = DateTime.Now,
-              
+
                 F_OrganizeId = userModel.F_OrganizeId,
                 F_DepartmentId = userModel.F_DepartmentId,
                 F_RoleId = userModel.F_RoleId,
@@ -177,7 +198,7 @@ namespace AdminUI.Controllers.Api
         }
 
 
-        [Authorize(Roles=("管理员"))]
+        [Authorize(Roles = ("管理员"))]
         [HttpDelete("{id}")]
         public object Delete(string id)
         {

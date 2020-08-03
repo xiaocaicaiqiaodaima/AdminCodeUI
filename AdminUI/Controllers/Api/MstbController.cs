@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using AdminUI.Code.Web;
 using AdminUI.Date.Models;
 using AdminUI.Date.Repostiory;
@@ -58,18 +60,23 @@ namespace AdminUI.Controllers.Api
 
             try
             {
-                var ret = from n in Monitorhistory.Query(t=>t.Ip_Address== id).Result
-                          group n by n.Monitor_Time
-                          into s
-                          select new {
-                              Ip_Address=s.Select(t=>t.Ip_Address).Take(1),
-                              Mac = s.Select(p => p.Mac).Take(1),
-                              Monitor_Name = s.Select(t => t.Monitor_Name),
-                              Monitor_Value = s.Select(t => t.Monitor_Value),
-                              Monitor_Time = s.Select(t => t.Monitor_Time).Take(1)
-                          } ;
-               
+
+                    var ret = from n in Monitorcurrent.Query(t => t.Mac == id).Result
+                              group n by n.Monitor_Time
+                                into s
+                              select new
+                              {
+                                  Ip_Address = s.Select(t => t.Ip_Address).Take(1),
+                                  Mac = s.Select(p => p.Mac).Take(1),
+                                  Monitor_Name = s.Select(t => t.Monitor_Name),
+                                  Monitor_Value = s.Select(t => t.Monitor_Value),
+                                  Monitor_Time = s.Select(t => t.Monitor_Time).Take(1)
+                              };
+                    Console.WriteLine(ret.ToJson());
+
+
                 return ret.ToJson();
+
             }
             catch (Exception)
             {
@@ -77,6 +84,7 @@ namespace AdminUI.Controllers.Api
                 return "数据错误";
             }
         }
+
 
         [HttpGet("GetMonitorstate")]
         public object GetMonitorstate() {
